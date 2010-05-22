@@ -54,7 +54,6 @@ set ignorecase
 set number
 set nowrap
 set linebreak
-set nomodeline
 
 colorscheme zellner " torte desert delek koehler peachpuff zellner
 
