@@ -1,0 +1,3 @@
+syntax: glob
+vim/backup/*
+vim/tmp/*
