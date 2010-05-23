@@ -45,7 +45,7 @@ fun snipMate#expandSnip(snip, col)
 	call append(lnum, map(snipLines[1:], "'".strpart(line, 0, indent - 1)."'.v:val"))
 
 	" Open any folds snippet expands into
-	if &fen | sil! exe lnum.','.(lnum + len(snipLines) - 1).'foldopen' | endif
+	if &fen | sil! exe lnum.','.(lnum + len(snipLines) - 1).'foldopen!' | endif
 
 	let [g:snipPos, s:snipLen] = s:BuildTabStops(snippet, lnum, col - indent, indent)
 
