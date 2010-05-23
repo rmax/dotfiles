@@ -66,7 +66,9 @@ set linebreak
 set list listchars=trail:·,tab:>-,extends:>,precedes:<
 set mouse=a
 
-colorscheme zellner " torte desert delek koehler peachpuff zellner
+" 8 colors: torte desert delek koehler peachpuff zellner
+" 256 colors: darkburn desert256 inkpot zenburn
+if &t_Co == 256 | colorscheme inkpot | else | colorscheme zellner | endif
 
 " remember last cursor position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
