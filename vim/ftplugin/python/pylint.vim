@@ -1,6 +1,3 @@
-"pylint compiler options
-compiler pylint
-let g:pylint_onwrite = 0
-let g:pylint_show_rate = 1
-let g:pylint_cwindow = 1
-
+"pylint 
+setlocal makeprg=python\ /usr/bin/pylint\ --output-format=parseable\ --reports=n\ %
+setlocal errorformat=%f:%l:\ [%t]%m,%f:%l:%m
