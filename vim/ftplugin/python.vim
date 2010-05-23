@@ -19,16 +19,12 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-
 set textwidth=78
-set foldmethod=indent
+set fileformat=unix
+set encoding=utf-8
 
 " - c do insert comment leader when wrapping based on textwidth
 " - r do insert comment leader when hitting <Enter>
 " - o do not insert comment leader when using 'o' or 'O'
 set formatoptions+=c formatoptions-=o formatoptions+=r
-
-au BufNewFile *.py,*.pyw set fileformat=unix
-au BufNewFile *.py,*.pyw set encoding=utf-8
-
 
