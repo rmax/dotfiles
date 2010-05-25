@@ -100,6 +100,26 @@ function! StripTrailingWhitespace()
 	normal `Z
 endfunction
 
-map <f2> :call StripTrailingWhitespace()<CR>
-map! <f2> :call StripTrailingWhitespace()<CR>
+noremap <silent> <f2> :call StripTrailingWhitespace()<cr>
+
+" NERD Tree
+noremap <f3> :NERDTreeToggle<cr><c-w>h
+
+" Taglist
+let g:Tlist_Process_File_Always = 1
+let g:Tlist_Exit_OnlyWindow = 1
+let g:Tlist_Auto_Highlight_Tag = 1
+
+noremap <f4> :TlistToggle<cr><c-w>h
+noremap <silent><a-right> <c-]>
+noremap <silent><a-left> <c-T>
+
+
+" cursor column (highlight CursorColumn)
+autocmd insertLeave * set nocursorcolumn
+autocmd insertEnter * set cursorcolumn
+
+" supertab
+let g:SuperTabCompletionType = 'context'
+let g:complType = "\<C-n>"
 
