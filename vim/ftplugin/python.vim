@@ -14,9 +14,9 @@ set fileformat=unix
 set encoding=utf-8
 
 " - c do insert comment leader when wrapping based on textwidth
-" - r do insert comment leader when hitting <Enter>
 " - o do not insert comment leader when using 'o' or 'O'
-set formatoptions+=c formatoptions-=o formatoptions+=r
+" - r do not insert comment leader when hitting <Enter>
+set formatoptions+=c formatoptions-=o formatoptions-=r
 
 highlight BadWhitespace term=standout ctermbg=red guibg=red
 match BadWhitespace /^\t\+/
