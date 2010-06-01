@@ -1,7 +1,7 @@
 " vimrc settings from svn.python.org
 "
+let g:python_highlight_all=1
 syntax on
-let python_highlight_all=1
 
 set nocindent
 
