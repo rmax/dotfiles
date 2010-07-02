@@ -103,4 +103,17 @@ snippet _
 	__${1:init}__${2}
 # iPython shortcut
 snippet ipshell
-	from IPython import Shell; Shell([]).IPShellEmbed([])()
+	from IPython import Shell; Shell.IPShellEmbed([])()
+# * and ** magic
+snippet *
+	*args
+snippet **
+	**kwargs
+snippet super
+	super(${1:Foo}, self).${2:__init__}(${3})
+# generic test case
+snippet testcase
+	class ${1:Foo}Test(TestCase):
+	
+		def test${2:Bar}(self):
+			${3:pass}

@@ -102,7 +102,12 @@ endfunction
 
 noremap <silent> <f2> :call StripTrailingWhitespace()<cr>
 
+" tab navigation
+noremap <silent> <c-right> :tabnext<cr>
+noremap <silent> <c-left> :tabprevious<cr>
+
 " NERD Tree
+let g:NERDTreeQuitOnOpen = 1
 noremap <f3> :NERDTreeToggle<cr><c-w>h
 
 " Taglist
