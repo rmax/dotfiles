@@ -101,9 +101,12 @@ snippet ifmain
 # __magic__
 snippet _
 	__${1:init}__${2}
-# iPython shortcut
+# iPython shortcut < 0.13
 snippet ipshell
 	from IPython import Shell; Shell.IPShellEmbed([])()
+# iPython embed >= 0.13
+snippet ipy
+	from IPython import embed; embed()
 # * and ** magic
 snippet *
 	*args
