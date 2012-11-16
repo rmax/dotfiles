@@ -1,7 +1,7 @@
 # \begin{}...\end{}
 snippet begin
-	\begin{${1:env}}
-		${2}
+	\begin{${1:env}}${2}
+		${3}
 	\end{$1}
 # Tabular
 snippet tab
@@ -25,12 +25,22 @@ snippet eq
 	\end{equation}
 # Unnumbered Equation
 snippet \
-	\\[
+	\[
 		${1}
-	\\]
+	\]
 # Enumerate
 snippet enum
 	\begin{enumerate}
+		\item ${1}
+	\end{enumerate}
+# Enumerate alphabetic
+snippet enuma
+	\begin{enumerate}[(a)]
+		\item ${1}
+	\end{enumerate}
+# Enumerate
+snippet enumi
+	\begin{enumerate}[(i)]
 		\item ${1}
 	\end{enumerate}
 # Itemize
@@ -44,7 +54,7 @@ snippet desc
 		\item[${1}] ${2}
 	\end{description}
 # Matrix
-snippet mat
+snippet matrix
 	\begin{${1:p/b/v/V/B/small}matrix}
 		${2}
 	\end{$1matrix}
@@ -113,3 +123,50 @@ snippet section
 	${1:Section}~\ref{${2:sec:}}${3}
 snippet page
 	${1:page}~\pageref{${2}}${3}
+##
+## Custom snippets
+##
+## math commands snippets
+# f:A -> B
+snippet map
+	\map{${1:f}}{${2:A}}{${3:B}}${4}
+snippet math
+	\[
+		${1}
+	\]${2}
+snippet mbox
+	\mbox{ ${1} }${2}
+snippet sum
+	\sum_{${1:i}}^{${2:n}}${3}
+## math common environments
+# definition env
+snippet defi
+	\begin{definition}${1}
+		${2}
+	\end{definition}
+	${3}
+snippet prop
+	\begin{proposition}${1}
+		${2}
+	\end{proposition}
+	${3}
+snippet lemm
+	\begin{lemma}${1}
+		${2}
+	\end{lemma}
+	${3}
+snippet theo
+	\begin{theorem}${1}
+		${2}
+	\end{theorem}
+	${3}
+snippet coro
+	\begin{corollary}${1}
+		${2}
+	\end{corollary}
+	${3}
+snippet proof
+	\begin{proof}${1}
+		${2}
+	\end{proof}
+	${3}

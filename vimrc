@@ -23,7 +23,7 @@ filetype plugin indent on
 
 set tabstop=2
 set shiftwidth=2
-set noexpandtab
+set expandtab
 
 set fileformat=unix
 set encoding=utf-8
@@ -68,7 +68,11 @@ set mouse=a
 
 " 8 colors: torte desert delek koehler peachpuff zellner
 " 256 colors: darkburn desert256 inkpot zenburn graywh
-if &t_Co == 256 | colorscheme inkpot | else | colorscheme graywh | endif
+if &t_Co == 256
+  colorscheme inkpot
+else
+  colorscheme graywh
+endif
 
 " remember last cursor position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -128,3 +132,14 @@ autocmd insertEnter * set cursorcolumn
 let g:SuperTabCompletionType = 'context'
 let g:complType = "\<C-n>"
 
+" tex-setup
+let g:tex_flavor='latex'
+
+
+" Tell vim to remember certain things when we exit
+"  '10  :  marks will be remembered for up to 10 previously edited files
+"  "100 :  will save up to 100 lines for each register
+"  :20  :  up to 20 lines of command-line history will be remembered
+"  %    :  saves and restores the buffer list
+"  n... :  where to save the viminfo files
+set viminfo='10,\"100,:20,%,n~/.viminfo
