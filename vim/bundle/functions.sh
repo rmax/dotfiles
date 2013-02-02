@@ -11,15 +11,10 @@ function git_bundle() {
     exit 1
   fi
   if [ -d $name ]; then
-    msg Updating $name
     (cd $name; git pull)
   else
-    msg Installing $name
     git clone $repo $name
   fi
-}
-
-function msg() {
-  echo "->" $@
+  return $?
 }
 
