@@ -120,11 +120,13 @@ endif
 
 " 8 colors: torte desert delek koehler peachpuff zellner
 " 256 colors: darkburn desert256 inkpot zenburn graywh
-if &t_Co == 256
+if &t_Co >= 256
   colorscheme inkpot
 else
   colorscheme graywh
 endif
+
+highlight ColorColumn ctermbg=8
 
 " strip tailing whitespaces in all lines
 function! StripTrailingWhitespace()
