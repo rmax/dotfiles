@@ -1,6 +1,77 @@
+"
 " global vim settings
+"
+set nocompatible
 
-" custom local leader
+" load bundles
+execute pathogen#infect()
+
+" load default settings from vim-sensible
+runtime! plugin/sensible.vim
+
+" Tell vim to remember certain things when we exit
+"  '10  :  marks will be remembered for up to 10 previously edited files
+"  "100 :  will save up to 100 lines for each register
+"  :20  :  up to 20 lines of command-line history will be remembered
+"  %    :  saves and restores the buffer list
+"  n... :  where to save the viminfo files
+set viminfo+='10,\"100,:20,%,n~/.viminfo
+
+" tabs
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+" keep indents chars
+set copyindent
+
+" file settings
+set fileformat=unix
+set encoding=utf-8
+set fileencodings=utf-8,latin1
+set noeol
+
+" wildmenu settings
+set wildmode=list:longest
+set wildignore+=*.o,*.obj,*.class,*~,*.lo,*.bak,*.pyc
+
+" hidden buffers
+set hidden
+
+" avoid intro prompt and abbreviate modified message
+set shortmess+=Im
+
+" enable backups
+set backup
+
+" search settings
+set hlsearch
+set ignorecase
+set smartcase
+
+" line settings
+set number
+set nowrap
+set linebreak
+set breakat=\ \ !@*-+;:,.?
+
+" enable mouse
+set mouse=a
+
+" print
+set printoptions+=syntax:y,number:y
+
+" don't fsync on save
+set nofsync
+
+" visual bell
+set vb t_vb=
+
+"
+" Customizations
+"
+
+" change leader
 let mapleader = ","
 let g:mapleader = ","
 
@@ -12,70 +83,32 @@ map <leader>r :source ~/.vimrc<CR>
 map <leader>e :e! ~/.vimrc<CR>
 " when vimrc is edited, reload it
 autocmd! BufWritePost vimrc source ~/.vimrc
-map <leader>S :call ReloadAllSnippets()<CR>
 
-" enable file type detection
-syntax enable
-filetype on
-filetype plugin on
-filetype indent on
-filetype plugin indent on
-
-set tabstop=2
-set shiftwidth=2
-set expandtab
-
-set fileformat=unix
-set encoding=utf-8
-set fileencodings=utf-8,latin1
-set noeol
-
-set nocompatible
-set wildmenu
-set wildmode=list:longest
-set wildignore=*.o,*.class,*~,*.lo,*.bak,*.pyc
-set hidden
-
-set shm+=Im
-set showmatch
-set showcmd
-set history=900
-
-set winminheight=1
-set scrolloff=5
-set sidescroll=5
-
-" backup
-set backup
-set backupext=.bak
-set backupdir=~/.vim/backup/
-set dir=~/.vim/tmp/
-
-set lazyredraw
-set printoptions+=syntax:y,number:y
-set nofsync
-set vb t_vb=
-set breakat=\ \ !@*-+;:,.?
-
-set incsearch
-set hlsearch
-set ignorecase
-set number
-set nowrap
-set linebreak
-set list listchars=trail:·,tab:>-,extends:>,precedes:<
-set mouse=a
-
-" 8 colors: torte desert delek koehler peachpuff zellner
-" 256 colors: darkburn desert256 inkpot zenburn graywh
-if &t_Co == 256
-  colorscheme inkpot
-else
-  colorscheme graywh
-endif
+" sudo save
+cmap w!! w !sudo tee % > /dev/null
 
 " remember last cursor position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" snippets shortcut
+map <leader>S :call ReloadAllSnippets()<CR>
+
+" cursor column (highlight CursorColumn)
+autocmd insertLeave * set nocursorcolumn
+autocmd insertEnter * set cursorcolumn
+
+" tab navigation
+noremap <silent> <c-right> :tabnext<cr>
+noremap <silent> <c-left> :tabprevious<cr>
+
+" window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" nohl shortcut
+nmap <silent> ,/ :nohl<CR>
 
 " nice status bar
 set laststatus=2
@@ -95,20 +128,59 @@ if has('title') && (has('gui_running') || &title)
     set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')}  " working directory
 endif
 
+" 8 colors: torte desert delek koehler peachpuff zellner
+" 256 colors: darkburn desert256 inkpot zenburn graywh
+if &t_Co == 256
+  colorscheme inkpot
+else
+  colorscheme graywh
+endif
+
+" strip tailing whitespaces in all lines
 function! StripTrailingWhitespace()
-	normal mZ
-	%s/\s\+$//e
-	if line("'Z") != line(".")
-		echo "Stripped whitespace\n"
-	endif
-	normal `Z
+  normal mZ
+  %s/\s\+$//e
+  if line("'Z") != line(".")
+    echo "Stripped whitespace\n"
+  endif
+  normal `Z
 endfunction
 
 noremap <silent> <f2> :call StripTrailingWhitespace()<cr>
 
-" tab navigation
-noremap <silent> <c-right> :tabnext<cr>
-noremap <silent> <c-left> :tabprevious<cr>
+" notification on DOS-style line endings
+autocmd BufReadPost * nested
+  \ if !exists('b:reload_dos') && !&binary && &ff=='unix' && (0 < search('\r$', 'nc', 0, 100)) |
+  \   let b:reload_dos = 1 |
+  \   redir => s:num_dos_ends |
+  \   silent %s#\r$##n |
+  \   redir END |
+  \   e ++ff=dos |
+  \   echomsg "File has ".
+  \     substitute(s:num_dos_ends, '^\_.\{-}\(\d\+\).*', '\1', '').
+  \     " DOS-style line endings out of ".line('$')." lines." |
+  \ endif
+autocmd BufReadPost * if exists('b:reload_dos') | unlet b:reload_dos | endif
+
+" highlight >80 chars columns
+nnoremap <Leader>H :call<SID>LongLineHLToggle()<cr>
+hi OverLength ctermbg=none cterm=none
+match OverLength /\%>80v/
+fun! s:LongLineHLToggle()
+ if !exists('w:longlinehl')
+  let w:longlinehl = matchadd('ErrorMsg', '.\%>80v', 0)
+  echo "Long lines highlighted"
+ else
+  call matchdelete(w:longlinehl)
+  unl w:longlinehl
+  echo "Long lines unhighlighted"
+ endif
+endfunction
+
+
+"
+" Plugins settings
+"
 
 " NERD Tree
 let g:NERDTreeQuitOnOpen = 1
@@ -124,22 +196,13 @@ noremap <silent><a-right> <c-]>
 noremap <silent><a-left> <c-T>
 
 
-" cursor column (highlight CursorColumn)
-autocmd insertLeave * set nocursorcolumn
-autocmd insertEnter * set cursorcolumn
-
 " supertab
 let g:SuperTabCompletionType = 'context'
 let g:complType = "\<C-n>"
+
 
 " tex-setup
 let g:tex_flavor='latex'
 
 
-" Tell vim to remember certain things when we exit
-"  '10  :  marks will be remembered for up to 10 previously edited files
-"  "100 :  will save up to 100 lines for each register
-"  :20  :  up to 20 lines of command-line history will be remembered
-"  %    :  saves and restores the buffer list
-"  n... :  where to save the viminfo files
-set viminfo='10,\"100,:20,%,n~/.viminfo
+
