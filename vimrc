@@ -20,6 +20,7 @@ set viminfo+='10,\"100,:20,%,n~/.viminfo
 
 " tabs
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set expandtab
 

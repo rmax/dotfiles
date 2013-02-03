@@ -1,17 +1,21 @@
 [MASTER]
 profile=no
 ignore=.svn
+ignore=.hg
 persistent=yes
 cache-size=500
+load-plugins=
 
 [REPORTS]
-;output-format=colorized
+output-format=colorized
 include-ids=y
 evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
 comment=no
 
 [FORMAT]
-max-line-length=79
+# allow long lines for readability. 80-length lines should be enforced
+# editor.
+max-line-length=99
 
 
 [BASIC]
@@ -35,18 +39,21 @@ function-rgx=[a-z_][A-Za-z0-9_]{2,30}$
 # Regular expression which should only match correct method names
 method-rgx=[a-z_][A-Za-z0-9_]{2,30}$
 
+# Regular expressions which should only match correct variables names
+variable-rgx=[a-z_][a-z0-9_]{2,30}$
+
 # Regular expression which should only match correct list comprehension /
 # generator expression variable names
 inlinevar-rgx=[A-Za-z_][A-Za-z0-9_]*$
 
 # Good variable names which should always be accepted, separated by a comma
-good-names=i,j,k,l,m,n,e,ex,Run,_
+good-names=d,i,j,k,l,m,n,e,ex,Run,_,xs
 
 # Bad variable names which should always be refused, separated by a comma
 bad-names=foo,bar,baz,toto,tutu,tata
 
 # List of builtins function names that should not be used, separated by a comma
-bad-functions=input
+bad-functions=input,range
 
 [MESSAGES CONTROL]
 # Disable the message(s) with the given id(s).
@@ -84,4 +91,4 @@ bad-functions=input
 
 #disable-msg=W0703 #Catch Exception
 
-disable-msg=W0142  #use of * or ** magic
+disable-msg=W0142,W0511

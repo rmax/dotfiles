@@ -1,6 +1,4 @@
-" vimrc settings from svn.python.org
-"
-set textwidth=79
+" Stuff not set in python-mode plugin
 
 " - c do insert comment leader when wrapping based on textwidth
 " - o do not insert comment leader when using 'o' or 'O'
