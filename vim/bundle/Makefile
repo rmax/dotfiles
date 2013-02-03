@@ -10,6 +10,7 @@ download:
 	git_bundle git://github.com/nvie/vim-flake8.git
 	git_bundle git://github.com/jmcantrell/vim-virtualenv.git
 	git_bundle git://git.wincent.com/command-t.git
+	git_bundle git://github.com/SirVer/ultisnips.git
 
 NEED_SETUP= vim-sensible command-t
 
