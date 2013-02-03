@@ -90,9 +90,6 @@ cmap w!! w !sudo tee % > /dev/null
 " remember last cursor position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" snippets shortcut
-map <leader>S :call ReloadAllSnippets()<CR>
-
 " cursor column (highlight CursorColumn)
 autocmd insertLeave * set nocursorcolumn
 autocmd insertEnter * set cursorcolumn
@@ -182,10 +179,6 @@ endfunction
 " Plugins settings
 "
 
-" NERD Tree
-let g:NERDTreeQuitOnOpen = 1
-noremap <f3> :NERDTreeToggle<cr><c-w>h
-
 " Taglist
 let g:Tlist_Process_File_Always = 1
 let g:Tlist_Exit_OnlyWindow = 1
@@ -203,6 +196,4 @@ let g:complType = "\<C-n>"
 
 " tex-setup
 let g:tex_flavor='latex'
-
-
 
