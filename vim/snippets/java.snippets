@@ -1,95 +1,178 @@
-snippet main
-	public static void main (String [] args)
-	{
-		${1:/* code */}
-	}
-snippet pu
-	public
-snippet po
-	protected
-snippet pr
-	private
-snippet st
-	static
-snippet fi
-	final
-snippet ab
-	abstract
-snippet re
-	return
-snippet br
-	break;
-snippet de
-	default:
-		${1}
-snippet ca
-	catch(${1:Exception} ${2:e}) ${3}
-snippet th
-	throw 
-snippet sy
-	synchronized
-snippet im
-	import
-snippet imp
-	implements
-snippet ext
-	extends 
-snippet j.u
-	java.util
-snippet j.i
-	java.io.
-snippet j.b
-	java.beans.
-snippet j.n
-	java.net.
-snippet j.m
-	java.math.
-snippet if
-	if (${1}) ${2}
-snippet el
-	else 
-snippet elif
-	else if (${1}) ${2}
-snippet wh
-	while (${1}) ${2}
-snippet for
-	for (${1}; ${2}; ${3}) ${4}
-snippet fore
-	for (${1} : ${2}) ${3}
-snippet sw
-	switch (${1}) ${2}
-snippet cs
-	case ${1}:
-		${2}
+snippet main "main"
+public static void main (String [] args)
+{
+	${1:/* code */}
+}
+endsnippet
+
+snippet pu "pu"
+public
+endsnippet
+
+snippet po "po"
+protected
+endsnippet
+
+snippet pr "pr"
+private
+endsnippet
+
+snippet st "st"
+static
+endsnippet
+
+snippet fi "fi"
+final
+endsnippet
+
+snippet ab "ab"
+abstract
+endsnippet
+
+snippet re "re"
+return
+endsnippet
+
+snippet br "br"
+break;
+endsnippet
+
+snippet de "de"
+default:
+	${1}
+endsnippet
+
+snippet ca "ca"
+catch(${1:Exception} ${2:e}) ${3}
+endsnippet
+
+snippet th "th"
+throw 
+endsnippet
+
+snippet sy "sy"
+synchronized
+endsnippet
+
+snippet im "im"
+import
+endsnippet
+
+snippet imp "imp"
+implements
+endsnippet
+
+snippet ext "ext"
+extends 
+endsnippet
+
+snippet j.u "j.u"
+java.util
+endsnippet
+
+snippet j.i "j.i"
+java.io.
+endsnippet
+
+snippet j.b "j.b"
+java.beans.
+endsnippet
+
+snippet j.n "j.n"
+java.net.
+endsnippet
+
+snippet j.m "j.m"
+java.math.
+endsnippet
+
+snippet if "if"
+if (${1}) ${2}
+endsnippet
+
+snippet el "el"
+else 
+endsnippet
+
+snippet elif "elif"
+else if (${1}) ${2}
+endsnippet
+
+snippet wh "wh"
+while (${1}) ${2}
+endsnippet
+
+snippet for "for"
+for (${1}; ${2}; ${3}) ${4}
+endsnippet
+
+snippet fore "fore"
+for (${1} : ${2}) ${3}
+endsnippet
+
+snippet sw "sw"
+switch (${1}) ${2}
+endsnippet
+
+snippet cs "cs"
+case ${1}:
+	${2}
+${3}
+endsnippet
+
+snippet tc "tc"
+public class ${1:`!v Filename()`} extends ${2:TestCase}
+endsnippet
+
+snippet t "t"
+public void test${1:Name}() throws Exception ${2}
+endsnippet
+
+snippet cl "cl"
+class ${1:`!v Filename("", "untitled")`} ${2}
+endsnippet
+
+snippet in "in"
+interface ${1:`!v Filename("", "untitled")`} ${2:extends Parent}${3}
+endsnippet
+
+snippet m "m"
+${1:void} ${2:method}(${3}) ${4:throws }${5}
+endsnippet
+
+snippet v "v"
+${1:String} ${2:var}${3: = null}${4};${5}
+endsnippet
+
+snippet co "co"
+static public final ${1:String} ${2:var} = ${3};${4}
+endsnippet
+
+snippet cos "cos"
+static public final String ${1:var} = "${2}";${3}
+endsnippet
+
+snippet as "as"
+assert ${1:test} : "${2:Failure message}";${3}
+endsnippet
+
+snippet try "try"
+try {
 	${3}
-snippet tc
-	public class ${1:`Filename()`} extends ${2:TestCase}
-snippet t
-	public void test${1:Name}() throws Exception ${2}
-snippet cl
-	class ${1:`Filename("", "untitled")`} ${2}
-snippet in
-	interface ${1:`Filename("", "untitled")`} ${2:extends Parent}${3}
-snippet m
-	${1:void} ${2:method}(${3}) ${4:throws }${5}
-snippet v
-	${1:String} ${2:var}${3: = null}${4};${5}
-snippet co
-	static public final ${1:String} ${2:var} = ${3};${4}
-snippet cos
-	static public final String ${1:var} = "${2}";${3}
-snippet as
-	assert ${1:test} : "${2:Failure message}";${3}
-snippet try
-	try {
-		${3}
-	} catch(${1:Exception} ${2:e}) {
-	}
-snippet tryf
-	try {
-		${3}
-	} catch(${1:Exception} ${2:e}) {
-	} finally {
-	}
-snippet rst
-	ResultSet ${1:rst}${2: = null}${3};${4}
+} catch(${1:Exception} ${2:e}) {
+}
+endsnippet
+
+snippet tryf "tryf"
+try {
+	${3}
+} catch(${1:Exception} ${2:e}) {
+} finally {
+}
+endsnippet
+
+snippet rst "rst"
+ResultSet ${1:rst}${2: = null}${3};${4}
+endsnippet
+
+

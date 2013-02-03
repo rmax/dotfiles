@@ -1,92 +1,132 @@
 # #!/usr/bin/env tclsh
-snippet #!
-	#!/usr/bin/env tclsh
-	
+snippet #! "#!"
+#!/usr/bin/env tclsh
+endsnippet
+
 # Process
-snippet pro
-	proc ${1:function_name} {${2:args}} {
-		${3:#body ...}
-	}
+snippet pro "pro"
+proc ${1:function_name} {${2:args}} {
+	${3:#body ...}
+}
+endsnippet
+
 #xif
-snippet xif
-	${1:expr}? ${2:true} : ${3:false}
+snippet xif "xif"
+${1:expr}? ${2:true} : ${3:false}
+endsnippet
+
 # Conditional
-snippet if
-	if {${1}} {
-		${2:# body...}
-	}
+snippet if "if"
+if {${1}} {
+	${2:# body...}
+}
+endsnippet
+
 # Conditional if..else
-snippet ife
-	if {${1}} {
-		${2:# body...}
-	} else {
-		${3:# else...}
-	}
+snippet ife "ife"
+if {${1}} {
+	${2:# body...}
+} else {
+	${3:# else...}
+}
+endsnippet
+
 # Conditional if..elsif..else
-snippet ifee
-	if {${1}} {
-		${2:# body...}
-	} elseif {${3}} {
-		${4:# elsif...}
-	} else {
-		${5:# else...}
-	}
+snippet ifee "ifee"
+if {${1}} {
+	${2:# body...}
+} elseif {${3}} {
+	${4:# elsif...}
+} else {
+	${5:# else...}
+}
+endsnippet
+
 # If catch then
-snippet ifc
-	if { [catch {${1:#do something...}} ${2:err}] } {
-		${3:# handle failure...}
-	}
+snippet ifc "ifc"
+if { [catch {${1:#do something...}} ${2:err}] } {
+	${3:# handle failure...}
+}
+endsnippet
+
 # Catch
-snippet catch
-	catch {${1}} ${2:err} ${3:options}
+snippet catch "catch"
+catch {${1}} ${2:err} ${3:options}
+endsnippet
+
 # While Loop
-snippet wh
-	while {${1}} {
-		${2:# body...}
-	}
+snippet wh "wh"
+while {${1}} {
+	${2:# body...}
+}
+endsnippet
+
 # For Loop
-snippet for
-	for {set ${2:var} 0} {$$2 < ${1:count}} {${3:incr} $2} {
-		${4:# body...}
-	}
+snippet for "for"
+for {set ${2:var} 0} {$$2 < ${1:count}} {${3:incr} $2} {
+	${4:# body...}
+}
+endsnippet
+
 # Foreach Loop
-snippet fore
-	foreach ${1:x} {${2:#list}} {
-		${3:# body...}
-	}
+snippet fore "fore"
+foreach ${1:x} {${2:#list}} {
+	${3:# body...}
+}
+endsnippet
+
 # after ms script...
-snippet af
-	after ${1:ms} ${2:#do something}
+snippet af "af"
+after ${1:ms} ${2:#do something}
+endsnippet
+
 # after cancel id
-snippet afc
-	after cancel ${1:id or script}
+snippet afc "afc"
+after cancel ${1:id or script}
+endsnippet
+
 # after idle
-snippet afi
-	after idle ${1:script}
+snippet afi "afi"
+after idle ${1:script}
+endsnippet
+
 # after info id
-snippet afin
-	after info ${1:id}
+snippet afin "afin"
+after info ${1:id}
+endsnippet
+
 # Expr
-snippet exp
-	expr {${1:#expression here}}
+snippet exp "exp"
+expr {${1:#expression here}}
+endsnippet
+
 # Switch
-snippet sw
-	switch ${1:var} {
-		${3:pattern 1} {
-			${4:#do something}
-		}
-		default {
-			${2:#do something}
-		}
+snippet sw "sw"
+switch ${1:var} {
+	${3:pattern 1} {
+		${4:#do something}
 	}
-# Case
-snippet ca
-	${1:pattern} {
+	default {
 		${2:#do something}
-	}${3}
+	}
+}
+endsnippet
+
+# Case
+snippet ca "ca"
+${1:pattern} {
+	${2:#do something}
+}${3}
+endsnippet
+
 # Namespace eval
-snippet ns
-	namespace eval ${1:path} {${2:#script...}}
+snippet ns "ns"
+namespace eval ${1:path} {${2:#script...}}
+endsnippet
+
 # Namespace current
-snippet nsc
-	namespace current
+snippet nsc "nsc"
+namespace current
+endsnippet
+
+

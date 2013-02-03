@@ -1,134 +1,232 @@
 # Generic Tags
-snippet %
-	{% ${1} %}${2}
-snippet %%
-	{% ${1:tag_name} %}
-	${2}
-	{% end$1 %}
-snippet {
-	{{ ${1} }}${2}
+snippet % "%"
+{% ${1} %}${2}
+endsnippet
+
+snippet %% "%%"
+{% ${1:tag_name} %}
+${2}
+{% end$1 %}
+endsnippet
+
+snippet { "{"
+{{ ${1} }}${2}
+endsnippet
+
 # Template Tags
+snippet autoescape "autoescape"
+{% autoescape ${1:off} %}
+${2}
+{% endautoescape %}
+endsnippet
 
-snippet autoescape
-	{% autoescape ${1:off} %}
-	${2}
-	{% endautoescape %}
-snippet block
-	{% block ${1} %}
-	${2}
-	{% endblock %}
-snippet #
-	{# ${1:comment} #}
-snippet comment
-	{% comment %}
-	${1}
-	{% endcomment %}
-snippet cycle
-	{% cycle ${1:val1} ${2:val2} ${3:as ${4}} %}
-snippet debug
-	{% debug %}
-snippet extends
-	{% extends "${1:base.html}" %}
-snippet filter
-	{% filter ${1} %}
-	${2}
-	{% endfilter %}
-snippet firstof
-	{% firstof ${1} %}
-snippet for
-	{% for ${1} in ${2} %}
-	${3}
-	{% endfor %}
-snippet empty
-	{% empty %}
-	${1}
-snippet if
-	{% if ${1} %}
-	${2}
-	{% endif %}
-snippet else
-	{% else %}
-	${1}
-snippet ifchanged
-	{% ifchanged %}${1}{% endifchanged %}
-snippet ifequal
-	{% ifequal ${1} ${2} %}
-	${3}
-	{% endifequal %}
-snippet ifnotequal
-	{% ifnotequal ${1} ${2} %}
-	${3}
-	{% endifnotequal %}
-snippet include
-	{% include "${1}" %}
-snippet load
-	{% load ${1} %}
-snippet now
-	{% now "${1:jS F Y H:i}" %}
-snippet regroup
-	{% regroup ${1} by ${2} as ${3} %}
-snippet spaceless
-	{% spaceless %}${1}{% endspaceless %}
-snippet ssi
-	{% ssi ${1} %}
-snippet trans
-	{% trans "${1:string}" %}
-snippet url
-	{% url ${1} as ${2} %}
-snippet widthratio
-	{% widthratio ${1:this_value} ${2:max_value} ${3:100} %}
-snippet with
-	{% with ${1} as ${2} %}
+snippet block "block"
+{% block ${1} %}
+${2}
+{% endblock %}
+endsnippet
+
+snippet # "#"
+{# ${1:comment} #}
+endsnippet
+
+snippet comment "comment"
+{% comment %}
+${1}
+{% endcomment %}
+endsnippet
+
+snippet cycle "cycle"
+{% cycle ${1:val1} ${2:val2} ${3:as ${4}} %}
+endsnippet
+
+snippet debug "debug"
+{% debug %}
+endsnippet
+
+snippet extends "extends"
+{% extends "${1:base.html}" %}
+endsnippet
+
+snippet filter "filter"
+{% filter ${1} %}
+${2}
+{% endfilter %}
+endsnippet
+
+snippet firstof "firstof"
+{% firstof ${1} %}
+endsnippet
+
+snippet for "for"
+{% for ${1} in ${2} %}
+${3}
+{% endfor %}
+endsnippet
+
+snippet empty "empty"
+{% empty %}
+${1}
+endsnippet
+
+snippet if "if"
+{% if ${1} %}
+${2}
+{% endif %}
+endsnippet
+
+snippet else "else"
+{% else %}
+${1}
+endsnippet
+
+snippet ifchanged "ifchanged"
+{% ifchanged %}${1}{% endifchanged %}
+endsnippet
+
+snippet ifequal "ifequal"
+{% ifequal ${1} ${2} %}
+${3}
+{% endifequal %}
+endsnippet
+
+snippet ifnotequal "ifnotequal"
+{% ifnotequal ${1} ${2} %}
+${3}
+{% endifnotequal %}
+endsnippet
+
+snippet include "include"
+{% include "${1}" %}
+endsnippet
+
+snippet load "load"
+{% load ${1} %}
+endsnippet
+
+snippet now "now"
+{% now "${1:jS F Y H:i}" %}
+endsnippet
+
+snippet regroup "regroup"
+{% regroup ${1} by ${2} as ${3} %}
+endsnippet
+
+snippet spaceless "spaceless"
+{% spaceless %}${1}{% endspaceless %}
+endsnippet
+
+snippet ssi "ssi"
+{% ssi ${1} %}
+endsnippet
+
+snippet trans "trans"
+{% trans "${1:string}" %}
+endsnippet
+
+snippet url "url"
+{% url ${1} as ${2} %}
+endsnippet
+
+snippet widthratio "widthratio"
+{% widthratio ${1:this_value} ${2:max_value} ${3:100} %}
+endsnippet
+
+snippet with "with"
+{% with ${1} as ${2} %}
+endsnippet
+
 # Template Filters
-
 # Note: Since SnipMate can't determine which template filter you are
 # expanding without the "|" character, these do not add the "|"
 # character.  These save a few keystrokes still.
-
 # Note: Template tags that take no arguments are not implemented.
+snippet add "add"
+add:"${1}"
+endsnippet
 
-snippet add
-	add:"${1}"
-snippet center
-	center:"${1}"
-snippet cut
-	cut:"${1}"
-snippet date
-	date:"${1}"
-snippet default
-	default:"${1}"
-snippet defaultifnone
-	default_if_none:"${1}"
-snippet dictsort
-	dictsort:"${1}"
-snippet dictsortrev
-	dictsortreversed:"${1}"
-snippet divisibleby
-	divisibleby:"${1}"
-snippet floatformat
-	floatformat:"${1}"
-snippet getdigit
-	get_digit:"${1}"
-snippet join
-	join:"${1}"
-snippet lengthis
-	length_is:"${1}"
-snippet pluralize
-	pluralize:"${1}"
-snippet removetags
-	removetags:"${1}"
-snippet slice
-	slice:"${1}"
-snippet stringformat
-	stringformat:"${1}"
-snippet time
-	time:"${1}"
-snippet truncatewords
-	truncatewords:${1}
-snippet truncatewordshtml
-	truncatewords_html:${1}
-snippet urlizetrunc
-	urlizetrunc:${1}
-snippet wordwrap
-	wordwrap:${1}
+snippet center "center"
+center:"${1}"
+endsnippet
+
+snippet cut "cut"
+cut:"${1}"
+endsnippet
+
+snippet date "date"
+date:"${1}"
+endsnippet
+
+snippet default "default"
+default:"${1}"
+endsnippet
+
+snippet defaultifnone "defaultifnone"
+default_if_none:"${1}"
+endsnippet
+
+snippet dictsort "dictsort"
+dictsort:"${1}"
+endsnippet
+
+snippet dictsortrev "dictsortrev"
+dictsortreversed:"${1}"
+endsnippet
+
+snippet divisibleby "divisibleby"
+divisibleby:"${1}"
+endsnippet
+
+snippet floatformat "floatformat"
+floatformat:"${1}"
+endsnippet
+
+snippet getdigit "getdigit"
+get_digit:"${1}"
+endsnippet
+
+snippet join "join"
+join:"${1}"
+endsnippet
+
+snippet lengthis "lengthis"
+length_is:"${1}"
+endsnippet
+
+snippet pluralize "pluralize"
+pluralize:"${1}"
+endsnippet
+
+snippet removetags "removetags"
+removetags:"${1}"
+endsnippet
+
+snippet slice "slice"
+slice:"${1}"
+endsnippet
+
+snippet stringformat "stringformat"
+stringformat:"${1}"
+endsnippet
+
+snippet time "time"
+time:"${1}"
+endsnippet
+
+snippet truncatewords "truncatewords"
+truncatewords:${1}
+endsnippet
+
+snippet truncatewordshtml "truncatewordshtml"
+truncatewords_html:${1}
+endsnippet
+
+snippet urlizetrunc "urlizetrunc"
+urlizetrunc:${1}
+endsnippet
+
+snippet wordwrap "wordwrap"
+wordwrap:${1}
+endsnippet
+
 

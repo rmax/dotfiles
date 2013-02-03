@@ -1,9 +1,15 @@
 # Global snippets
-
 # (c) holds no legal value ;)
-snippet c)
-	Copyright `&enc[:2] == "utf" ? "©" : "(c)"` `strftime("%Y")` ${1:`g:snips_author`}. All Rights Reserved.${2}
-snippet date
-	`strftime("%Y-%m-%d")`
-snippet ddate
-	`strftime("%B %d, %Y")`
+snippet c) "c)"
+Copyright `!v &enc[:2] == "utf" ? "©" : "(c)"` `!v strftime("%Y")` ${1:`!v g:snips_author`}. All Rights Reserved.${2}
+endsnippet
+
+snippet date "date"
+`!v strftime("%Y-%m-%d")`
+endsnippet
+
+snippet ddate "ddate"
+`!v strftime("%B %d, %Y")`
+endsnippet
+
+
