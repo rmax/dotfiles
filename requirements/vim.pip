@@ -1,3 +1,5 @@
 ropevim
 flake8
 pylint
+ipython
+pyzmq

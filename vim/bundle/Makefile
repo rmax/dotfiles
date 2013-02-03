@@ -18,6 +18,7 @@ download:
 	git_bundle git://github.com/tpope/vim-surround.git
 	git_bundle git://github.com/rstacruz/sparkup.git
 	git_bundle git://github.com/tpope/vim-fugitive.git
+	git_bundle git://github.com/ivanov/vim-ipython.git
 
 NEED_SETUP= vim-sensible command-t
 
