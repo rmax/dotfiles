@@ -108,15 +108,6 @@ map <C-l> <C-w>l
 " nohl shortcut
 nmap <silent> ,/ :nohl<CR>
 
-" nice status bar
-set laststatus=2
-set statusline=
-set statusline+=%<%f%h%m%r%h%w%y
-set statusline+=\ [%{strlen(&ft)?&ft:'none'},%{&enc},%{&ff}]
-set statusline+=%=
-set statusline+=c:%c%V\ l:%l,%L\ %P
-
-
 " Nice window title
 if has('title') && (has('gui_running') || &title)
     set titlestring=
@@ -198,3 +189,5 @@ let g:complType = "\<C-n>"
 " tex-setup
 let g:tex_flavor='latex'
 
+" powerline
+source $HOME/.vim/bundle/powerline/powerline/bindings/vim/plugin/source_plugin.vim
