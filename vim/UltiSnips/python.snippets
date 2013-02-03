@@ -1,0 +1,90 @@
+snippet imp "import module" b
+import ${1:module}
+endsnippet
+
+# Module Docstring
+snippet docs "docs" b
+"""
+File: ${1:`!v Filename('$1.py', 'foo.py')`}
+Author: ${2:`!v g:snips_author`}
+Description: ${3}
+"""
+endsnippet
+
+snippet wh "wh" b
+while ${1:condition}:
+	${2:# code...}
+endsnippet
+
+snippet for "for" b
+for ${1:needle} in ${2:haystack}:
+	${3:# code...}
+endsnippet
+
+# magic method
+snippet def_ "def_" b
+def __${1:init}__(${2:`!v indent('.') ? 'self' : ''`}${3}):
+	${4:pass}
+endsnippet
+
+# return statement
+snippet ret "ret" b
+return${1: var}
+endsnippet
+
+# Lambda: e.g. var = ld<tab>
+snippet ld "ld" b
+lambda${1: vars}: ${2:action}
+endsnippet
+
+snippet . "." b
+self.
+endsnippet
+
+# if
+snippet if "if" b
+if ${1:cond}:
+	${2:pass}
+endsnippet
+
+# if/else
+snippet ife "ife" b
+if ${1:cond}:
+	${2:pass}
+else:
+	${3:pass}
+endsnippet
+
+
+# __magic__
+snippet _ "_" b
+__${1:init}__${2}
+endsnippet
+
+# iPython shortcut < 0.13
+snippet ipshell "ipshell" b
+from IPython import Shell; Shell.IPShellEmbed([])()
+endsnippet
+
+# iPython embed >= 0.13
+snippet ipyembed "ipyembed" b
+from IPython import embed; embed()
+endsnippet
+
+snippet ipytracer "ipytracer" b
+from IPython.core.debugger import Tracer; Tracer()()
+endsnippet
+
+# * and ** magic
+snippet * "*" b
+*args
+endsnippet
+
+snippet ** "**" b
+**kwargs
+endsnippet
+
+snippet super "super" b
+super(${1:Foo}, self).${2:__init__}(${3})
+endsnippet
+

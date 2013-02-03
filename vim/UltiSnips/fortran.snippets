@@ -1,0 +1,113 @@
+snippet program "program"
+program ${1:name}
+	implicit none
+	${2}
+end program $1
+endsnippet
+
+snippet if "if"
+if (${1:condition}) then
+	${2}
+end if
+endsnippet
+
+snippet do "do"
+do ${1:i} = ${2:1}, ${3:N}
+	${4}
+end do
+endsnippet
+
+snippet dow "dow"
+do while (${1:condition})
+	${2}
+end do
+endsnippet
+
+snippet type "type"
+type ${1:name}
+	${3}
+end type $1
+endsnippet
+
+snippet open "open"
+open (unit=${1:10}, file=${2:filename}, ${3})
+${4}
+endsnippet
+
+snippet function "function"
+function ${1:name}(${2}) result(${3})
+	${4}
+end function $1
+endsnippet
+
+snippet sub "sub"
+subroutine ${1:name}(${2})
+	${3}
+end subroutine $1
+endsnippet
+
+snippet arr "arr"
+${1:type}, dimension(${2}) :: ${3}
+endsnippet
+
+snippet const "const"
+${1:type}, parameter :: ${3} = ${4}
+endsnippet
+
+snippet i "i"
+integer :: ${1}
+endsnippet
+
+snippet r "r"
+real :: ${1}
+endsnippet
+
+snippet l "l"
+logical :: ${1}
+endsnippet
+
+snippet c "c"
+character :: ${1}
+endsnippet
+
+snippet s "s"
+character(len=${1}) :: ${2}
+endsnippet
+
+snippet t "t"
+type(${1}) :: ${2}
+endsnippet
+
+# custom snippets
+snippet print "print"
+print ${1:*}, ${2}
+endsnippet
+
+snippet read "read"
+read(${1:*},${2:*}) ${3}
+endsnippet
+
+snippet write "write"
+write(${1:*},${2:*}) ${3}
+endsnippet
+
+snippet ik "ik"
+integer(kind=${1:4}) :: ${2}
+endsnippet
+
+snippet rk "rk"
+real(kind=${1:4}) :: ${2}
+endsnippet
+
+snippet ck "ck"
+complex(kind=${1:4}) :: ${2}
+endsnippet
+
+snippet module "module"
+module ${1:name}
+	implicit none
+	${2}
+end module $1
+endsnippet
+
+

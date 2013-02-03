@@ -1,0 +1,156 @@
+# Align(ed)
+snippet "ali(gn)?" "align block"
+\begin{align${1:ed}}
+	${2}
+\end{align$1}
+endsnippet
+
+# Gather(ed)
+snippet gat "gat"
+\begin{gather${1:ed}}
+	${2}
+\end{gather$1}
+endsnippet
+
+# Equation
+snippet eq "eq"
+\begin{equation}
+	${1}
+\end{equation}
+endsnippet
+
+# Unnumbered Equation
+snippet \ "\"
+\[
+	${1}
+\]
+endsnippet
+
+# Enumerate alphabetic
+snippet enuma "enuma"
+\begin{enumerate}[(a)]
+	\item ${1}
+\end{enumerate}
+endsnippet
+
+# Enumerate
+snippet enumi "enumi"
+\begin{enumerate}[(i)]
+	\item ${1}
+\end{enumerate}
+endsnippet
+
+# Matrix
+snippet "mat(rix)?" "matrix"
+\begin{${1:p/b/v/V/B/small}matrix}
+	${2}
+\end{$1matrix}
+endsnippet
+
+# Cases
+snippet cas "cas"
+\begin{cases}
+	${1:equation}, &\text{ if }${2:case}\\
+	${3}
+\end{cases}
+endsnippet
+
+# Split
+snippet spl "spl"
+\begin{split}
+	${1}
+\end{split}
+endsnippet
+
+snippet itd "itd"
+\item[${1:description}] ${2:item}
+endsnippet
+
+snippet figure "figure"
+${1:Figure}~\ref{${2:fig:}}${3}
+endsnippet
+
+snippet table "table"
+${1:Table}~\ref{${2:tab:}}${3}
+endsnippet
+
+snippet listing "listing"
+${1:Listing}~\ref{${2:list}}${3}
+endsnippet
+
+snippet section "section"
+${1:Section}~\ref{${2:sec:}}${3}
+endsnippet
+
+snippet page "page"
+${1:page}~\pageref{${2}}${3}
+endsnippet
+
+##
+## Custom snippets
+##
+## math commands snippets
+# f:A -> B
+snippet map "map"
+\map{${1:f}}{${2:A}}{${3:B}}${4}
+endsnippet
+
+snippet math "math"
+\[
+	${1}
+\]${2}
+endsnippet
+
+snippet mbox "mbox"
+\mbox{ ${1} }${2}
+endsnippet
+
+snippet sum "sum"
+\sum_{${1:i}}^{${2:n}}${3}
+endsnippet
+
+## math common environments
+# definition env
+snippet defi "defi"
+\begin{definition}${1}
+	${2}
+\end{definition}
+${3}
+endsnippet
+
+snippet prop "prop"
+\begin{proposition}${1}
+	${2}
+\end{proposition}
+${3}
+endsnippet
+
+snippet lemm "lemm"
+\begin{lemma}${1}
+	${2}
+\end{lemma}
+${3}
+endsnippet
+
+snippet theo "theo"
+\begin{theorem}${1}
+	${2}
+\end{theorem}
+${3}
+endsnippet
+
+snippet coro "coro"
+\begin{corollary}${1}
+	${2}
+\end{corollary}
+${3}
+endsnippet
+
+snippet proof "proof"
+\begin{proof}${1}
+	${2}
+\end{proof}
+${3}
+endsnippet
+
+
