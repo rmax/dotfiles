@@ -1,17 +1,6 @@
 " vimrc settings from svn.python.org
 "
-let g:python_highlight_all=1
-syntax on
-
-set nocindent
-
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-set textwidth=78
-set fileformat=unix
-set encoding=utf-8
+set textwidth=79
 
 " - c do insert comment leader when wrapping based on textwidth
 " - o do not insert comment leader when using 'o' or 'O'
