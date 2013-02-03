@@ -192,5 +192,3 @@ let g:complType = "\<C-n>"
 " tex-setup
 let g:tex_flavor='latex'
 
-" powerline
-source $HOME/.vim/bundle/powerline/powerline/bindings/vim/plugin/source_plugin.vim

@@ -12,13 +12,13 @@ download:
 	git_bundle git://git.wincent.com/command-t.git
 	git_bundle git://github.com/SirVer/ultisnips.git
 	git_bundle git://github.com/klen/python-mode.git
-	git_bundle git://github.com/Lokaltog/powerline.git
 	git_bundle git://github.com/gerw/vim-latex-suite.git
 	git_bundle git://github.com/sjbach/lusty.git
 	git_bundle git://github.com/tpope/vim-surround.git
 	git_bundle git://github.com/rstacruz/sparkup.git
 	git_bundle git://github.com/tpope/vim-fugitive.git
 	git_bundle git://github.com/ivanov/vim-ipython.git
+	git_bundle git://github.com/Lokaltog/vim-powerline.git	
 
 NEED_SETUP= vim-sensible command-t
 
