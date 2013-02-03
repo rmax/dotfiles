@@ -5,6 +5,7 @@ set nocompatible
 
 " load bundles
 execute pathogen#infect()
+execute pathogen#helptags()
 
 " load default settings from vim-sensible
 runtime! plugin/sensible.vim

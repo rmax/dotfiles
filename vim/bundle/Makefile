@@ -11,6 +11,7 @@ download:
 	git_bundle git://github.com/jmcantrell/vim-virtualenv.git
 	git_bundle git://git.wincent.com/command-t.git
 	git_bundle git://github.com/SirVer/ultisnips.git
+	git_bundle git://github.com/klen/python-mode.git
 
 NEED_SETUP= vim-sensible command-t
 
