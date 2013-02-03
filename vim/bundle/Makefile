@@ -13,6 +13,7 @@ download:
 	git_bundle git://github.com/SirVer/ultisnips.git
 	git_bundle git://github.com/klen/python-mode.git
 	git_bundle git://github.com/Lokaltog/powerline.git
+	git_bundle git://github.com/gerw/vim-latex-suite.git
 
 NEED_SETUP= vim-sensible command-t
 
