@@ -136,7 +136,7 @@ highlight ColorColumn ctermbg=8
 " gui-only stuff
 if has('gui_running')
   " remove menu & toolbar from gui
-  set guioptions-=mT
+  set guioptions+=mT guioptions-=mT
   " better font
   set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
   " this colorscheme looks good on gui
