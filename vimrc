@@ -126,7 +126,22 @@ else
   colorscheme graywh
 endif
 
+" column dark grey
 highlight ColorColumn ctermbg=8
+
+
+" gui-only stuff
+if has('gui_running')
+  " remove menu & toolbar from gui
+  set guioptions-=mT
+  " better font
+  set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
+  " this colorscheme looks good on gui
+  colorscheme inkpot
+  " better color column
+  highlight ColorColumn guibg=grey20
+endif
+
 
 " strip tailing whitespaces in all lines
 function! StripTrailingWhitespace()
