@@ -18,6 +18,7 @@ runtime! plugin/sensible.vim
 "  n... :  where to save the viminfo files
 set viminfo+='10,\"100,:20,%,n~/.viminfo
 
+
 " tabs
 set tabstop=2
 set softtabstop=2
@@ -142,6 +143,13 @@ if has('gui_running')
   highlight ColorColumn guibg=grey20
 endif
 
+
+" enable dictionary and completion on func call
+function! EnableWordsCompletion()
+  set dictionary+=/usr/share/dict/american-english
+  set dictionary+=/usr/share/dict/spanish
+  set complete+=k
+endfunction
 
 " strip tailing whitespaces in all lines
 function! StripTrailingWhitespace()
