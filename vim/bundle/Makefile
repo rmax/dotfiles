@@ -21,7 +21,7 @@ download:
 	git_bundle git://github.com/Lokaltog/vim-powerline.git	
 	git_bundle git://github.com/scrooloose/syntastic.git
 
-NEED_SETUP = vim-sensible command-t
+NEED_SETUP = vim-sensible command-t sparkup
 
 .PHONY: setup $(NEED_SETUP)
 setup: $(NEED_SETUP)
@@ -33,3 +33,5 @@ command-t:
 	(cd command-t/ruby/command-t && ruby extconf.rb)
 	$(MAKE) -C command-t/ruby/command-t/
 
+sparkup:
+	(cd sparkup && ln -s `pwd`/vim/ftplugin .) 2>/dev/null || true
