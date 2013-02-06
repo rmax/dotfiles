@@ -3,9 +3,9 @@
 #
 SHELL := /bin/bash --init-file functions.sh -i
 
-PLUGINS = command-t jedi-vim lusty python-mode sparkup syntastic \
-	ultisnips vim-flake8 vim-fugitive vim-ipython vim-latex-suite \
-	vim-powerline vim-sensible vim-surround vim-virtualenv
+PLUGINS = command-t jedi-vim lusty python-mode sparkup supertab syntastic \
+	ultisnips vim-flake8 vim-fugitive vim-ipython vim-latex-suite vim-powerline \
+	vim-sensible vim-surround vim-virtualenv
 
 .PHONY: $(PLUGINS)
 
@@ -30,6 +30,9 @@ python-mode:
 sparkup:
 	git_bundle git://github.com/rstacruz/sparkup.git
 	cd sparkup; ln -s `pwd`/vim/ftplugin . 2>/dev/null || true
+
+supertab:
+	git_bundle git://github.com/ervandew/supertab.git
 
 syntastic:
 	git_bundle git://github.com/scrooloose/syntastic.git
