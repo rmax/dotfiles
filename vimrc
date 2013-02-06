@@ -98,8 +98,8 @@ autocmd insertLeave * set nocursorcolumn
 autocmd insertEnter * set cursorcolumn
 
 " tab navigation
-noremap <silent> <c-right> :tabnext<cr>
-noremap <silent> <c-left> :tabprevious<cr>
+noremap <leader>n <esc>:tabnext<cr>
+noremap <leader>m <esc>:tabprevious<cr>
 
 " window navigation
 map <C-h> <C-w>h
@@ -129,6 +129,8 @@ endif
 
 " column dark grey
 highlight ColorColumn ctermbg=8
+
+" highlight trailing whitespaces
 
 
 " gui-only stuff
@@ -193,6 +195,29 @@ fun! s:LongLineHLToggle()
 endfunction
 
 
+" Better navigating through omnicomplete option list
+" See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
+set completeopt=longest,menuone,preview
+
+function! OmniPopup(action)
+if pumvisible()
+    if a:action == 'j'
+    return "\<C-N>"
+    elseif a:action == 'k'
+    return "\<C-P>"
+    endif
+endif
+return a:action
+endfunction
+
+inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
+inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
+
+" folding shortcuts
+nnoremap  <space> za
+vnoremap  <space> zf
+
+
 "
 " Plugins settings
 "
@@ -211,7 +236,12 @@ noremap <silent><a-left> <c-T>
 let g:SuperTabCompletionType = 'context'
 let g:complType = "\<C-n>"
 
-
 " tex-setup
 let g:tex_flavor='latex'
 
+" vim-powerline
+let g:Powerline_symbols='compatible'
+
+" syntastic
+" disable for python
+let g:syntastic_disabled_filetypes='python'

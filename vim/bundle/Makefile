@@ -19,8 +19,9 @@ download:
 	git_bundle git://github.com/tpope/vim-fugitive.git
 	git_bundle git://github.com/ivanov/vim-ipython.git
 	git_bundle git://github.com/Lokaltog/vim-powerline.git	
+	git_bundle git://github.com/scrooloose/syntastic.git
 
-NEED_SETUP= vim-sensible command-t
+NEED_SETUP = vim-sensible command-t
 
 .PHONY: setup $(NEED_SETUP)
 setup: $(NEED_SETUP)
