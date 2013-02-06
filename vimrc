@@ -222,5 +222,8 @@ let g:tex_flavor='latex'
 let g:Powerline_symbols='compatible'
 
 " syntastic
-" disable for python
 let g:syntastic_disabled_filetypes=['python']
+
+" jedi-vim
+let g:jedi#popup_on_dot = 0
+let g:jedi#autocompletion_command = '<c-space>'
