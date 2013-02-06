@@ -3,35 +3,55 @@
 #
 SHELL := /bin/bash --init-file functions.sh -i
 
-all: download setup
+PLUGINS = vim-sensible command-t sparkup
+.PHONY: $(PLUGINS)
 
-download:
-	git_bundle git://github.com/tpope/vim-sensible.git
-	git_bundle git://github.com/nvie/vim-flake8.git
-	git_bundle git://github.com/jmcantrell/vim-virtualenv.git
-	git_bundle git://git.wincent.com/command-t.git
-	git_bundle git://github.com/SirVer/ultisnips.git
-	git_bundle git://github.com/klen/python-mode.git
-	git_bundle git://github.com/gerw/vim-latex-suite.git
-	git_bundle git://github.com/sjbach/lusty.git
-	git_bundle git://github.com/tpope/vim-surround.git
-	git_bundle git://github.com/rstacruz/sparkup.git
-	git_bundle git://github.com/tpope/vim-fugitive.git
-	git_bundle git://github.com/ivanov/vim-ipython.git
-	git_bundle git://github.com/Lokaltog/vim-powerline.git	
-	git_bundle git://github.com/scrooloose/syntastic.git
-
-NEED_SETUP = vim-sensible command-t sparkup
-
-.PHONY: setup $(NEED_SETUP)
-setup: $(NEED_SETUP)
-
-vim-sensible:
-	mkdir ~/.local/share/vim/{swap,backup,undo} 2>/dev/null || true
+all: $(PLUGINS)
 
 command-t:
+	git_bundle git://git.wincent.com/command-t.git
 	(cd command-t/ruby/command-t && ruby extconf.rb)
 	$(MAKE) -C command-t/ruby/command-t/
 
+lusty:
+	git_bundle git://github.com/sjbach/lusty.git
+
+python-mode:
+	git_bundle git://github.com/klen/python-mode.git
+
 sparkup:
+	git_bundle git://github.com/rstacruz/sparkup.git
 	(cd sparkup && ln -s `pwd`/vim/ftplugin .) 2>/dev/null || true
+
+syntastic:
+	git_bundle git://github.com/scrooloose/syntastic.git
+
+ultisnips:
+	git_bundle git://github.com/SirVer/ultisnips.git
+
+vim-flake8:
+	git_bundle git://github.com/nvie/vim-flake8.git
+
+vim-fugitive:
+	git_bundle git://github.com/tpope/vim-fugitive.git
+
+vim-ipython:
+	git_bundle git://github.com/ivanov/vim-ipython.git
+
+vim-latex-suite:
+	git_bundle git://github.com/gerw/vim-latex-suite.git
+
+vim-powerline:
+	git_bundle git://github.com/Lokaltog/vim-powerline.git	
+
+vim-sensible:
+	git_bundle git://github.com/tpope/vim-sensible.git
+	mkdir ~/.local/share/vim/{swap,backup,undo} 2>/dev/null || true
+
+vim-surround:
+	git_bundle git://github.com/tpope/vim-surround.git
+
+vim-virtualenv:
+	git_bundle git://github.com/jmcantrell/vim-virtualenv.git
+
+
