@@ -201,6 +201,15 @@ set completeopt=longest,menuone,preview
 nnoremap  <space> za
 vnoremap  <space> zf
 
+" autoclose quickfix window
+aug QFClose
+  au!
+  au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+aug END
+
+" pate toggle
+set pastetoggle=<f12>
+
 
 "
 " Plugins settings
