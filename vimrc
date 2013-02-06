@@ -194,24 +194,8 @@ fun! s:LongLineHLToggle()
  endif
 endfunction
 
-
-" Better navigating through omnicomplete option list
-" See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
+" complete default opts
 set completeopt=longest,menuone,preview
-
-function! OmniPopup(action)
-if pumvisible()
-    if a:action == 'j'
-    return "\<C-N>"
-    elseif a:action == 'k'
-    return "\<C-P>"
-    endif
-endif
-return a:action
-endfunction
-
-inoremap <silent><C-j> <C-R>=OmniPopup('j')<CR>
-inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
 " folding shortcuts
 nnoremap  <space> za
@@ -231,11 +215,6 @@ noremap <f4> :TlistToggle<cr><c-w>h
 noremap <silent><a-right> <c-]>
 noremap <silent><a-left> <c-T>
 
-
-" supertab
-let g:SuperTabCompletionType = 'context'
-let g:complType = "\<C-n>"
-
 " tex-setup
 let g:tex_flavor='latex'
 
@@ -244,4 +223,4 @@ let g:Powerline_symbols='compatible'
 
 " syntastic
 " disable for python
-let g:syntastic_disabled_filetypes='python'
+let g:syntastic_disabled_filetypes=['python']
