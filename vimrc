@@ -138,7 +138,7 @@ if has('gui_running')
   " remove menu & toolbar from gui
   set guioptions+=mT guioptions-=mT
   " better font
-  set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
+  set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
   " this colorscheme looks good on gui
   colorscheme inkpot
   " better color column
@@ -236,3 +236,26 @@ let g:syntastic_disabled_filetypes=['python']
 " jedi-vim
 let g:jedi#popup_on_dot = 0
 let g:jedi#autocompletion_command = '<c-space>'
+
+" supertab
+let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabContextDefaultCompletionType = '<c-p>'
+let g:SuperTabMappingTabLiteral = '<c-tab>'
+
+" python-mode
+let g:pymode_rope_goto_def_newwin = 'vnew'
+" avoid to modify exiting files
+let g:pymode_utils_whitespaces = 0
+" ignore common spaces-related warnings when working with legacy code:
+"   E128 continuation line under-indented for visual indent
+"   E225 missing whitespace around operator
+"   E231 missing whitespace after ',;:'
+"   E251 no spaces around keyword / parameter equals
+"   E261 at least two spaces before inline comment
+"   E262 inline comment should start with '# '
+"   E301 expected one blank line
+"   E303 too many blank lines
+"   E401 multiple imports on one line
+"   E501 line too long
+"   W391 blank line at end of file
+let g:pymode_lint_ignore='E128,E225,E231,E251,E261,E262,E301,E303,E401,E501,W391'
