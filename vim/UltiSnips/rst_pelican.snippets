@@ -1,0 +1,48 @@
+###########################################################################
+#                 pelican static blog generator snippets                  #
+###########################################################################
+
+snippet title "Title" !b
+${1:title}
+`!p snip.rv = len(t[1])*'#'`
+
+$0
+endsnippet
+
+snippet metafull "Standard metadata" !b
+:date: `!v strftime("%Y-%m-%d")`
+:tags: ${1:stuff}
+:category: ${2:random}
+:slug: ${3:my-super-post}
+:author: ${4:Rolando}
+:lang: ${5:en}
+:summary: ${6:summary ...}
+
+$0
+endsnippet
+
+snippet meta "Minimum metadata" !b
+:date: `!v strftime("%Y-%m-%d")`
+:tags: ${1:stuff}
+
+$0
+endsnippet
+
+snippet header "title + meta" !b
+${1:title}
+`!p snip.rv = len(t[1])*'#'`
+
+:date: ${2:`!v strftime("%Y-%m-%d")`}
+:tags: ${3:stuff}
+
+$0
+endsnippet
+
+
+snippet code "code block" !b
+.. code-block:: ${1:python}
+
+  ${2:code}
+
+$0
+endsnippet
