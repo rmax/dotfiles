@@ -1,7 +1,9 @@
 curl
+exuberant-ctags
 git
 vim
 python
 python-dev
 ruby
 ruby-dev
+zsh-beta
