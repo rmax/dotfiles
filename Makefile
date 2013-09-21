@@ -1,8 +1,8 @@
 #
 # Author: Rolando Espinoza La fuente <darkrho (at) gmail.com>
 #
-DOTFILES = curlrc pylintrc vimrc vim
 SUBDIRS = requirements vim
+DOTFILES = curlrc latexmkrc pylintrc vimrc vim
 
 
 all: subdirs links
