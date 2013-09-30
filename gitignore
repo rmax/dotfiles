@@ -1,0 +1,9 @@
+*~
+*.pyc
+.*swp
+*.tmp
+*.orig
+.git/
+.hg/
+.svn/
+CVS/

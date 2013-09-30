@@ -1,0 +1,63 @@
+[ui]
+username = Rolando Espinoza <darkrho@gmail.com>
+ignore = ~/.hgignore
+
+[extensions]
+color =
+# pager =
+transplant =
+parentrevspec =
+hgext.bookmarks =
+hgext.graphlog =
+hgext.hgk =
+hgext.mq =
+hgext.notify =
+hgext.purge =
+hgext.rebase =
+hgext.record =
+
+[alias]
+# push only the working directory's parent revision (and ancestors)
+nudge = push --rev .
+
+qs = qseries -v -s
+qlog = -l -r qtip:qbase
+qstatus = status --rev .^1
+qudiff = diff -r $(hg parents -r qbase --template '#rev') -r qtip
+
+[merge-tools]
+vimdiff.executable = vimdiff
+vimdiff.premerge = true
+vimdiff.gui = false
+vimdiff.priority = 1
+
+[diff]
+git = 1
+nodates = 1
+
+[git]
+intree = 1
+
+[pager]
+pager = LESS='FSRXimJMW' less
+attend =
+ignore = clone push pull
+
+[bookmarks]
+track.current = true
+
+[hooks]
+changegroup = hg diff --stat -r $HG_NODE -r tip
+
+# don't commit any code that contains 'pdb'
+# pretxncommit.pdb = hg export tip | (!grep 'pdb')
+
+# prevent push/pull if mq patches are applied
+pre-pull.mq-no-pull = ! hg qtop > /dev/null 2>&1
+pre-push.mq-no-push = ! hg qtop > /dev/null 2>&1
+
+[smtp]
+host = smtp.gmail.com
+tls = true
+username = darkrho@gmail.com
+# password =
