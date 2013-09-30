@@ -18,6 +18,10 @@ runtime! plugin/sensible.vim
 "  n... :  where to save the viminfo files
 set viminfo+='10,\"100,:20,%,n~/.viminfo
 
+" local dirs
+set directory=~/.local/share/vim/swap//
+set backupdir=~/.local/share/vim/backup//
+set undodir=~/.local/share/vim/undo//
 
 " tabs
 set tabstop=2
