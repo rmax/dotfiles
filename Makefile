@@ -1,8 +1,8 @@
 #
 # Author: Rolando Espinoza La fuente <darkrho (at) gmail.com>
 #
-SUBDIRS = vim requirements
-DOTFILES = ctags curlrc gitconfig gitignore hgignore hgrc ipython_config.py pylintrc vimrc vim
+SUBDIRS = requirements vim
+DOTFILES = ctags curlrc gitconfig gitignore hgignore hgrc ipython_config.py latexmkrc pylintrc vimrc vim
 
 
 all: subdirs links
