@@ -17,5 +17,5 @@ $(APT_FILES):
 
 .PHONY : $(PIP_FILES)
 $(PIP_FILES):
-	pip install --user -q -r $@
+	pip install --upgrade --user -q -r $@
 

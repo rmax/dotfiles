@@ -1,0 +1,19 @@
+## Shell aliases
+
+# python-only grin
+alias pygrin='grin -I "*.py"'
+
+# pip with wheel support
+alias pip-wheel='pip wheel --wheel-dir=$HOME/.pip/wheelhouse'
+alias pip-install='pip install --use-wheel --find-links=$HOME/.pip/wheelhouse'
+
+# virtualenv
+alias v='workon'
+alias v.deactivate='deactivate'
+alias v.mk='mkvirtualenv'
+alias v.rm='rmvirtualenv'
+alias v.switch='workon'
+alias v.add2virtualenv='add2virtualenv'
+alias v.cdsitepackages='cdsitepackages'
+alias v.cd='cdvirtualenv'
+alias v.lssitepackages='lssitepackages'

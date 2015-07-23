@@ -1,0 +1,11 @@
+## Shell variables
+
+# Fortran
+export PGPLOT_DEV="/XSERV"
+
+# Go
+export GOPATH=$HOME/.golib
+export PATH=$GOPATH/bin:$PATH
+
+# Virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
